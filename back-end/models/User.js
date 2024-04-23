@@ -1,5 +1,4 @@
-const { Timestamp } = require("firebase/firestore/lite");
-const mongoose = require("mangoose");
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const userSchema = new Schema(
