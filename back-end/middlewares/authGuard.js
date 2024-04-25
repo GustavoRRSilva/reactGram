@@ -4,7 +4,7 @@ const jwtSecret = process.env.JWT_SECRET;
 
 const authGuard = async(req,res,next)=>{
     //Headers
-    const authHeader = req.headres["authorization"];
+    const authHeader = req.headers["authorization"];
     //get only the token
     const token = authHeader && authHeader.split(" ")[1];
 
@@ -17,6 +17,7 @@ const authGuard = async(req,res,next)=>{
         const verified = jwt.verify(token,jwtSecret);
         //Recebe os dados do usuario menos a senha
         req.user = await User.findById(verified.id).select("-password");
+        next()
 
     }catch(error){
         res.status(410).json({errors:["Token inválido"]})
@@ -24,3 +25,4 @@ const authGuard = async(req,res,next)=>{
 
 
 }
+module.exports = authGuard;
