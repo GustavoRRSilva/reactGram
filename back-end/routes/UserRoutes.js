@@ -6,6 +6,7 @@ const {
   register,
   login,
   getCurrentUser,
+  update,
 } = require("../controllers/UserController");
 
 //Midllewares
@@ -13,13 +14,21 @@ const validate = require("../middlewares/handleValidation");
 const {
   userCreateValidation,
   loginValidation,
+  userUpdateValidation,
 } = require("../middlewares/userValidation");
-const authGuard = require("../middlewares/authGuard")
-
+const authGuard = require("../middlewares/authGuard");
+const { imageUpload } = require("../middlewares/imageUpload");
 //Routes
 //Esta linha define uma rota POST para o caminho "/register". Quando uma requisição POST é feita para esse caminho, o middleware userCreateValidation é executado primeiro para validar os dados da requisição de criação de usuário, em seguida, o middleware validate é executado para tratamento adicional de validação, e finalmente o controlador register é chamado para lidar com a lógica de registro de usuário.
 router.post("/register", userCreateValidation(), validate, register);
 router.post("/login", loginValidation(), validate, login);
 router.get("/profile", authGuard, getCurrentUser);
-
+router.put(
+  "/",
+  authGuard,
+  userUpdateValidation(),
+  validate,
+  imageUpload.single("profileImage"),
+  update
+);
 module.exports = router;

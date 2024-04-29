@@ -1,6 +1,6 @@
 const { body } = require("express-validator");
 
-//Pega os campos do body e verificam se estão no formato certo
+//Pega os campos do body e verificam se estão no formato certo, para criação de
 const userCreateValidation = () => {
   return [
     body("name")
@@ -30,6 +30,7 @@ const userCreateValidation = () => {
   ];
 };
 
+//Valdações do Login
 const loginValidation = () => {
   return [
     body("email")
@@ -41,7 +42,22 @@ const loginValidation = () => {
   ];
 };
 
+//Validação da troca de informações do usuario
+const userUpdateValidation = () => {
+  return [
+    body("name")
+      .optional()
+      .isLength({ min: 3 })
+      .withMessage("o nome tem que ter mais de 3 caracteres"),
+    body("password")
+      .optional()
+      .isLength({ min: 5 })
+      .withMessage("a senha tem que ter no minimo 5 caracteres"),
+  ];
+};
+
 module.exports = {
   userCreateValidation,
   loginValidation,
+  userUpdateValidation,
 };
