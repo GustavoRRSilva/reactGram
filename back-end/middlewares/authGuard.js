@@ -1,3 +1,4 @@
+//Verificar se o usuario esta logado
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const jwtSecret = process.env.JWT_SECRET;
