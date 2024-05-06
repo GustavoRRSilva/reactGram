@@ -7,16 +7,16 @@
     padding: 1em;
 }
 
-.searchForm{
+.form{
     position: relative;
     white-space: 20%;
 }
-.searchForm svg{
+.form svg{
     position: absolute;
     top: 10px;
     left: 9px;
 }
-.searchForm input{
+.form input{
     padding-left: 2.5em;
     border: none;
     border-radius: 5px;
@@ -33,6 +33,6 @@
 .navLinks span{
     cursor: pointer;
 }
-.navLinks svg{
-    font-size: 1.5em;
+.form svg{
+    font-size: 1em;
 }

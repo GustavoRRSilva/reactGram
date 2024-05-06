@@ -13,7 +13,7 @@ export default function Navbar(second) {
   return (
     <nav className={style.nav}>
       <Link href="/">Reactgram</Link>
-      <form>
+      <form className={style.form}>
         <BsSearch></BsSearch>
         <input type="text" placeholder="Pesquisar..."></input>
       </form>

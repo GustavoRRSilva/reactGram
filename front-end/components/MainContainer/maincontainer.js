@@ -5,7 +5,7 @@ export default function MainContainer({ children }) {
   return (
     <>
       <Navbar></Navbar>
-      <main classname="main-container">{children}</main>
+      <main className="main-container">{children}</main>
       <Footer></Footer>
     </>
   );

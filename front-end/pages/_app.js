@@ -1,9 +1,14 @@
 import "@/styles/globals.css";
 import MainContainer from "@/components/MainContainer/maincontainer";
+//Redux
+import { Provider } from "react-redux";
+import { store } from "@/store";
 export default function App({ Component, pageProps }) {
   return (
-    <MainContainer>
-      <Component {...pageProps} />
-    </MainContainer>
+    <Provider store={store}>
+      <MainContainer>
+        <Component {...pageProps} />
+      </MainContainer>
+    </Provider>
   );
 }
