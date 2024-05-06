@@ -11,13 +11,13 @@ import {
 
 export default function Navbar(second) {
   return (
-    <nav className={style.navbar}>
+    <nav className={style.nav}>
       <Link href="/">Reactgram</Link>
       <form>
         <BsSearch></BsSearch>
-        <input type="text"></input>
+        <input type="text" placeholder="Pesquisar..."></input>
       </form>
-      <ul className={style.links}>
+      <ul className={style.navLinks}>
         <Link href="/">
           <BsHouseDoorFill />
         </Link>
