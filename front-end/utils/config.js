@@ -1,7 +1,7 @@
 import { body, header } from "express-validator";
 
 // URL base da API
-export const api = "http://localost:5000/api";
+export const api = "http://localhost:5000/api";
 // URL para uploads de arquivos
 export const uploads = "http://localhost:5000/uploads";
 

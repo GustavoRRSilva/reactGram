@@ -4,6 +4,7 @@ import MainContainer from "@/components/MainContainer/maincontainer";
 import { Provider } from "react-redux";
 import { store } from "@/store";
 export default function App({ Component, pageProps }) {
+
   return (
     <Provider store={store}>
       <MainContainer>
@@ -12,3 +13,4 @@ export default function App({ Component, pageProps }) {
     </Provider>
   );
 }
+

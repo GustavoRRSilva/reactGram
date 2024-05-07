@@ -5,12 +5,17 @@ import Link from "next/link";
 
 //Hooks
 import { useState, useEffect } from "react";
-
+import { useSelector, useDispatch } from "react-redux";
+//Redux
+import { register, reset } from "@/slices/authSlice";
 export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const dispath = useDispatch();
+  const { loading, error } = useSelector((state) => state.auth);
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -21,7 +26,12 @@ export default function Register() {
       confirmPassword,
     };
     console.log(user);
+    dispath(register(user));
   };
+  //Clean all auth states
+  useEffect(() => {
+    dispath(reset());
+  }, [dispath]);
   return (
     <div className={styles.register}>
       <h2>React Gram</h2>
