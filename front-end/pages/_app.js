@@ -3,8 +3,10 @@ import MainContainer from "@/components/MainContainer/maincontainer";
 //Redux
 import { Provider } from "react-redux";
 import { store } from "@/store";
-export default function App({ Component, pageProps }) {
+//Hooks 
 
+export default function App({ Component, pageProps }) {
+  
   return (
     <Provider store={store}>
       <MainContainer>

@@ -2,7 +2,7 @@ import styles from "@/styles/Auth.module.css";
 
 //Componentes
 import Link from "next/link";
-
+import Message from "@/components/Message/mesage";
 //Hooks
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -65,7 +65,9 @@ export default function Register() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           value={confirmPassword}
         />
-        <input required type="Submit" value="Cadastrar" />
+        {!loading && <input required type="Submit" value="Cadastrar" />}
+        {loading && <input required type="Submit" value="Aguarde..." disabled/>}
+        {error && <Message msg = {error} type = "Error"/>}
       </form>
       <p>
         Já tem conta? <Link href="/Auth/login">Clique aqui.</Link>
